@@ -160,7 +160,7 @@ def solve_required_spot(
     # Root Finding via Brent's Method
     # -----------------------------------------------------------------------
     try:
-        root = brentq(objective, a, b, xtol=1e-5, rtol=1e-5, maxiter=100)
+        root = brentq(objective, a, b, xtol=1e-8, rtol=1e-8, maxiter=100)
     except Exception as exc:
         return (
             None,
