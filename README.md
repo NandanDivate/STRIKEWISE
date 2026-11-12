@@ -156,6 +156,7 @@ See [docs/api_examples.md](docs/api_examples.md) for examples of all endpoints.
 - **[Beginner's Guide (Days 7–8 Walkthrough)](docs/day_7_8_guide.md)** — Live HTTP API endpoints, reverse spot solving via Brent's method, and integration tests
 - **[Beginner's Guide (Days 9–10 Walkthrough)](docs/day_9_10_guide.md)** — Numerical solver hardening, Put attainability limits, dynamic bracketing, and machine-precision tolerances
 - **[Beginner's Guide (Days 11–12 Walkthrough)](docs/day_11_12_guide.md)** — Market data provider architecture, stale-quote detection, DhanHQ broker adapter, and offline reliability
+- **[Beginner's Guide (Days 13–14 Walkthrough)](docs/day_13_14_guide.md)** — Release packaging, test coverage measurement (89%), Docker packaging, and DoD audit
 - **[Architecture Overview](docs/architecture.md)** — System architecture, layering, and data flow
 - **[Mathematical Assumptions](docs/assumptions.md)** — BSM model, continuous dividend yield, ACT/365, Greek units
 - **[API Examples](docs/api_examples.md)** — Sample cURL requests and JSON responses
