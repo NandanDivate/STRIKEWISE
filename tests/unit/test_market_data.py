@@ -73,3 +73,4 @@ def test_market_data_factory_defaults_to_manual():
 
     provider_dhan = get_market_data_provider("dhan")
     assert isinstance(provider_dhan, DhanHQProvider)
+

@@ -21,3 +21,4 @@ def get_market_data_provider(provider_type: Optional[str] = None) -> MarketDataP
         return DhanHQProvider()
     else:
         return ManualMarketDataProvider()
+
