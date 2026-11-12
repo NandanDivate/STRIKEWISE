@@ -10,11 +10,11 @@
 
 A high-performance quantitative options pricing service and developer library for Indian index options (**NIFTY 50**). Implements European Black-Scholes-Merton with continuous dividend yield, 5 analytical Greeks, and high-precision numerical root-finding using SciPy's Brent method.
 
-> **⚠️ Disclaimer:** All estimates produced by this engine are theoretical, based on the Black-Scholes-Merton model under stated assumptions. They do not constitute financial advice and do not guarantee any executable price or profit.
+> **Disclaimer:** All estimates produced by this engine are theoretical, based on the Black-Scholes-Merton model under stated assumptions. They do not constitute financial advice and do not guarantee any executable price or profit.
 
 ---
 
-## ⚡ 60-Second Developer Quickstart
+## Quickstart Guide
 
 STRIKEWISE can be consumed in two ways:
 1. **As a Python Library** — Import directly into your trading bots, backtesting scripts, or pandas pipelines (zero HTTP overhead).
@@ -147,9 +147,9 @@ print(f"Projected Gross P&L: ₹{data['base_estimate']['gross_pnl']:.2f}")
 
 ---
 
-## 🚀 One-Click Cloud Deployment (Render)
+## Cloud Deployment (Render)
 
-Deploy this API to **Render** in 2 minutes for free:
+Deploy this API to **Render** for free:
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/NandanDivate/STRIKEWISE)
 
@@ -160,7 +160,7 @@ Deploy this API to **Render** in 2 minutes for free:
 
 ---
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 Run with Docker Compose:
 ```bash
@@ -175,7 +175,7 @@ docker run -d -p 8000:8000 --name strikewise strikewise:latest
 
 ---
 
-## 📊 Core Features
+## Core Features
 
 - **Option Premium Estimation**: Estimates theoretical European option premiums at user-defined target spot prices.
 - **Analytical Greeks**: Delta, Gamma, Theta (per calendar day), Vega (per 1% IV shift), and Rho with verified units.
@@ -188,7 +188,7 @@ docker run -d -p 8000:8000 --name strikewise strikewise:latest
 
 ---
 
-## 🏛️ Architecture & Clean Design
+## Architecture & Design
 
 STRIKEWISE follows a clean, layered modular monolith pattern:
 
@@ -216,7 +216,7 @@ STRIKEWISE follows a clean, layered modular monolith pattern:
 
 ---
 
-## 🧪 Running Tests
+## Running Tests
 
 STRIKEWISE has a complete automated test suite with **75 tests** covering mathematical edge cases, root-solving limits, and API integration:
 
@@ -230,7 +230,7 @@ pytest --cov=app --cov=strikewise --cov-report=term-missing
 
 ---
 
-## 📐 Mathematical Assumptions
+## Mathematical Assumptions
 
 - **Pricing Model**: European Black-Scholes-Merton with continuous dividend yield:
   $$\begin{aligned}
@@ -250,7 +250,7 @@ pytest --cov=app --cov=strikewise --cov-report=term-missing
 
 ---
 
-## 📄 License
+## License
 
 Licensed under the **Apache License, Version 2.0** (the "License"). You may obtain a copy of the License in the [LICENSE](LICENSE) file or at:
 

@@ -14,13 +14,13 @@ from app.core.config import settings
 from app.core.errors import register_exception_handlers
 
 API_DESCRIPTION = """
-### 📈 Quantitative Options Pricing & Risk Engine for NIFTY 50
+### Quantitative Options Pricing & Risk Engine for NIFTY 50
 
 A production-grade options pricing service and quantitative risk engine implementing the European Black-Scholes-Merton model with continuous dividend yield, 5 analytical Greeks, and high-precision SciPy Brent root-finding.
 
 ---
 
-### 👨‍💻 Developer & Author Information
+### Author & Developer Information
 - **Developer:** **Nandan Divate**
 - **GitHub Profile:** [github.com/NandanDivate](https://github.com/NandanDivate)
 - **Project Repository:** [STRIKEWISE on GitHub](https://github.com/NandanDivate/STRIKEWISE)
@@ -28,7 +28,7 @@ A production-grade options pricing service and quantitative risk engine implemen
 
 ---
 
-### 🚀 Key Capabilities
+### Core Capabilities
 - **Black-Scholes-Merton Pricing:** Continuous dividend yield with strict ACT/365 day-count convention.
 - **Analytical Greeks:** Real-time Delta, Gamma, Theta (per-day), Vega (1% IV shift), and Rho.
 - **Reverse Spot Solver:** SciPy Brent method (`brentq`) with machine precision ($10^{-8}$ tolerance).
@@ -37,7 +37,7 @@ A production-grade options pricing service and quantitative risk engine implemen
 
 ---
 
-> **⚠️ Disclaimer:** All estimates produced by this API are theoretical, based on the Black-Scholes-Merton model under stated assumptions. They do not constitute financial advice and do not guarantee any executable price or profit.
+> **Disclaimer:** All estimates produced by this API are theoretical, based on the Black-Scholes-Merton model under stated assumptions. They do not constitute financial advice and do not guarantee any executable price or profit.
 """
 
 app = FastAPI(
