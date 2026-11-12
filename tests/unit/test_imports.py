@@ -71,3 +71,4 @@ def test_strikewise_top_level_imports():
     )
     assert status == "solution_found"
     assert spot is not None
+

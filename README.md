@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python Version](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Swagger%20UI-brightgreen?logo=fastapi)](https://strikewise-4mxr.onrender.com/docs)
 [![Tests](https://img.shields.io/badge/tests-75%20passed-brightgreen)](#running-tests)
 [![Coverage](https://img.shields.io/badge/coverage-89%25-brightgreen)](#running-tests)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/NandanDivate/STRIKEWISE)
@@ -83,7 +84,13 @@ print(f"Required Spot: ₹{required_spot:.2f} (Status: {status})")
 
 ### Option 2: Use as a REST API
 
-#### Start the Server Locally
+#### Live Hosted API (Try Right Now Without Setup)
+The API is deployed and freely accessible:
+- **Interactive Swagger UI**: [https://strikewise-4mxr.onrender.com/docs](https://strikewise-4mxr.onrender.com/docs)
+- **ReDoc Documentation**: [https://strikewise-4mxr.onrender.com/redoc](https://strikewise-4mxr.onrender.com/redoc)
+- **Health Check**: [https://strikewise-4mxr.onrender.com/health](https://strikewise-4mxr.onrender.com/health)
+
+#### Or Run Locally
 ```bash
 git clone https://github.com/NandanDivate/STRIKEWISE.git
 cd STRIKEWISE
@@ -97,20 +104,18 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-Interactive Swagger UI documentation is available at: **`http://127.0.0.1:8000/docs`**
+Local Swagger UI: **`http://127.0.0.1:8000/docs`**
 
-#### cURL Example: Calculate Option Greeks
+#### cURL Example: Calculate Option Greeks (Against Live API)
 ```bash
-curl -X POST "http://127.0.0.1:8000/api/v1/options/greeks" \
+curl -X POST "https://strikewise-4mxr.onrender.com/api/v1/options/greeks" \
      -H "Content-Type: application/json" \
      -d '{
        "spot_price": 24500.0,
        "strike_price": 24500.0,
-       "time_to_expiry_years": 0.05,
-       "risk_free_rate": 0.07,
-       "dividend_yield": 0.012,
-       "volatility": 0.14,
-       "option_type": "CE"
+       "option_type": "CE",
+       "expiry": "2026-11-20T10:00:00Z",
+       "implied_volatility_percent": 14.0
      }'
 ```
 
@@ -132,7 +137,7 @@ payload = {
     "quantity": 50,
 }
 
-response = requests.post("http://127.0.0.1:8000/api/v1/options/estimate", json=payload)
+response = requests.post("https://strikewise-4mxr.onrender.com/api/v1/options/estimate", json=payload)
 data = response.json()
 
 print(f"Base Estimate: ₹{data['base_estimate']['estimated_premium']:.2f}")

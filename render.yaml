@@ -17,3 +17,4 @@ services:
         value: NIFTY Options Pricing API
       - key: MARKET_DATA_PROVIDER
         value: manual
+
