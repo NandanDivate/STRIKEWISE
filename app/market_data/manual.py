@@ -2,75 +2,52 @@
 
 Passes through user-supplied values from the API request without
 fetching any external data. This provider requires no credentials
-and always works offline.
+and works completely offline.
 
-No fake or fabricated market data is generated.
+Zero fake or fabricated market data is generated.
 """
 
+from __future__ import annotations
+
 from datetime import datetime, timezone
-from typing import Any, Dict
+from typing import Any, Dict, List
+
+from app.market_data.base import MarketDataProvider, OptionQuote, SpotQuote
 
 
 class ManualMarketDataProvider:
-    """Market data provider that uses request-supplied values.
+    """Market data provider for manual input mode."""
 
-    This provider simply passes through the values provided by the user
-    in the API request. It does not fetch, fabricate, or simulate any
-    market data.
-    """
+    def __init__(self) -> None:
+        self.source_name = "manual"
 
-    def get_spot_quote(self, symbol: str) -> Dict[str, Any]:
-        """Not applicable for manual mode.
+    def get_spot_quote(self, symbol: str) -> SpotQuote:
+        """In manual mode, spot price is supplied directly in the API request."""
+        return SpotQuote(
+            symbol=symbol,
+            price=None,
+            timestamp=datetime.now(timezone.utc),
+            source=self.source_name,
+            is_stale=False,
+            message="Manual mode active: spot price must be provided in request payload.",
+        )
 
-        In manual mode, spot price is supplied directly in the request.
+    def get_option_chain(self, symbol: str) -> List[Dict[str, Any]]:
+        """In manual mode, strike and expiry are supplied directly in the API request."""
+        return []
 
-        Args:
-            symbol: The underlying symbol.
-
-        Returns:
-            Dictionary indicating manual mode with no live data.
-        """
-        return {
-            "price": None,
-            "timestamp": datetime.now(timezone.utc),
-            "source": "manual",
-            "message": "Manual mode: spot price must be supplied in the request.",
-        }
-
-    def get_option_chain(self, symbol: str) -> Dict[str, Any]:
-        """Not applicable for manual mode.
-
-        In manual mode, strike and expiry are supplied directly in the request.
-
-        Args:
-            symbol: The underlying symbol.
-
-        Returns:
-            Dictionary indicating manual mode with no live data.
-        """
-        return {
-            "instruments": [],
-            "timestamp": datetime.now(timezone.utc),
-            "source": "manual",
-            "message": "Manual mode: strike and expiry must be supplied in the request.",
-        }
-
-    def get_option_quote(self, instrument_id: str) -> Dict[str, Any]:
-        """Not applicable for manual mode.
-
-        In manual mode, premium and IV are supplied directly in the request.
-
-        Args:
-            instrument_id: The instrument identifier.
-
-        Returns:
-            Dictionary indicating manual mode with no live data.
-        """
-        return {
-            "premium": None,
-            "timestamp": datetime.now(timezone.utc),
-            "source": "manual",
-            "iv": None,
-            "message": "Manual mode: premium and IV must be supplied in the request.",
-        }
-
+    def get_option_quote(self, instrument_id: str) -> OptionQuote:
+        """In manual mode, premium and IV are supplied directly in the API request."""
+        return OptionQuote(
+            instrument_id=instrument_id,
+            symbol="NIFTY",
+            strike=0.0,
+            option_type="CE",
+            expiry=datetime.now(timezone.utc),
+            premium=None,
+            timestamp=datetime.now(timezone.utc),
+            source=self.source_name,
+            implied_volatility=None,
+            is_stale=False,
+            message="Manual mode active: entry premium and IV must be provided in request payload.",
+        )
