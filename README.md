@@ -154,6 +154,7 @@ See [docs/api_examples.md](docs/api_examples.md) for examples of all endpoints.
 - **[Beginner's Guide (Days 3–4 Walkthrough)](docs/day_3_4_guide.md)** — Black-Scholes-Merton math, dividend yield, ACT/365 time utils, and mathematical unit tests
 - **[Beginner's Guide (Days 5–6 Walkthrough)](docs/day_5_6_guide.md)** — Core estimation service, analytical Greeks, IV scenario analysis, and gross P&L computation
 - **[Beginner's Guide (Days 7–8 Walkthrough)](docs/day_7_8_guide.md)** — Live HTTP API endpoints, reverse spot solving via Brent's method, and integration tests
+- **[Beginner's Guide (Days 9–10 Walkthrough)](docs/day_9_10_guide.md)** — Numerical solver hardening, Put attainability limits, dynamic bracketing, and machine-precision tolerances
 - **[Architecture Overview](docs/architecture.md)** — System architecture, layering, and data flow
 - **[Mathematical Assumptions](docs/assumptions.md)** — BSM model, continuous dividend yield, ACT/365, Greek units
 - **[API Examples](docs/api_examples.md)** — Sample cURL requests and JSON responses
